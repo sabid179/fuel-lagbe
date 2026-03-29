@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fuel Lagbe? Bangladesh Fuel Map</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+	<link
+		rel="stylesheet"
+		href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		crossorigin=""
+	>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="backdrop-shape backdrop-shape-one"></div>
+	<div class="backdrop-shape backdrop-shape-two"></div>
+
+	<main class="page-wrap">
+		<section class="panel panel-left">
+			<h1>Fuel Lagbe?</h1>
+			<p id="subtitleText" class="subtitle">Search any place in Bangladesh and instantly see fuel stations within 10 km.</p>
+
+			<div class="search-box">
+				<label for="placeInput">Search place</label>
+				<div class="input-row">
+					<input id="placeInput" type="text" placeholder="Try: Dhanmondi, Chittagong, Sylhet" autocomplete="off">
+				</div>
+				<label for="radiusInput">Range (km)</label>
+				<div class="input-row">
+					<select id="radiusInput" class="radius-input">
+						<option value="1">1 km</option>
+						<option value="5">5 km</option>
+						<option value="10" selected>10 km</option>
+						<option value="25">25 km</option>
+						<option value="50">50 km</option>
+						<option value="100">100 km</option>
+					</select>
+				</div>
+				<button id="searchBtn" type="button" class="full-width-btn">Find</button>
+				<div class="action-row">
+					<button id="addFuelPlaceBtn" type="button" class="secondary-btn">Add Fuel Place</button>
+					<button id="myLocationBtn" type="button" class="secondary-btn">Move to My Location</button>
+				</div>
+				<small id="searchStatus">Ready.</small>
+			</div>
+
+			<div class="result-card">
+				<h2 id="nearbyHeading">Nearby Fuel Stations (10 km)</h2>
+				<ul id="nearbyStationsList" class="item-list"></ul>
+			</div>
+		</section>
+
+		<section class="panel panel-right">
+			<div id="map"></div>
+			<p class="map-tip">Tip: Click any fuel pin, edit details, and press Update. No account required.</p>
+			<p class="map-tip">Developed by <a class="profile-link" href="https://www.facebook.com/sparsebrainer/" target="_blank" rel="noopener noreferrer">Md. Rakibul Islam Sabid</a>. AI assistance used.</p>
+			<p class="map-tip">This project was built in a vibe-coding spirit. It may contain significant bugs, but it is intended as a fun and experimental project. Please enjoy it responsibly and do not misuse it.</p>
+		</section>
+	</main>
+
+	<script
+		src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		crossorigin=""
+	></script>
+	<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+	<script src="config.js"></script>
+	<script src="scripts.js"></script>
+</body>
+</html>
